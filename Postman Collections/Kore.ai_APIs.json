@@ -1,0 +1,1878 @@
+{
+  "info": {
+    "_postman_id": "63d32b50-9cd1-4b6c-a465-abc462deb12a",
+    "name": "Kore.ai APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Eligibility",
+      "item": [
+        {
+          "name": "Single Record Valid Request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "8eec8725-a6f5-41f5-ab94-1be74867cffd",
+                "exec": [
+                  "pm.test(\"Multiple results\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.Records.length).to.eq(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "1bba0e24-21f8-4377-a11d-7c268743d36f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth1",
+              "oauth1": {
+                "tokenSecret": "{{TokenSecret}}",
+                "token": "{{AccessToken}}",
+                "consumerSecret": "{{CustomerSecret}}",
+                "consumerKey": "{{CustomerKey}}",
+                "addParamsToHeader": true,
+                "signatureMethod": "HMAC-SHA1",
+                "version": "1.0",
+                "addEmptyParamsToSign": false
+              }
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"tin\": \"1111111111\",\n\t\"memberid\": \"66666666600\",\n\t\"dob\": \"01/05/1962\",\n\t\"searchmodifiers\": \"\"\n}"
+            },
+            "url": {
+              "raw": "https://{{env}}.healthx.com/API/EligibilityV1/JSON/Bot/Provider/Search/ID?instanceid={{instanceID}}",
+              "protocol": "https",
+              "host": [
+                "{{env}}",
+                "healthx",
+                "com"
+              ],
+              "path": [
+                "API",
+                "EligibilityV1",
+                "JSON",
+                "Bot",
+                "Provider",
+                "Search",
+                "ID"
+              ],
+              "query": [
+                {
+                  "key": "instanceid",
+                  "value": "{{instanceID}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Multiple Records Valid Request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "86710140-0866-48be-9609-7723f6d88ec3",
+                "exec": [
+                  "pm.test(\"Multiple results\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.Records.length).gt(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "10eab8c8-b8a3-4d5d-a69d-4ed5c5898c33",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth1",
+              "oauth1": {
+                "tokenSecret": "{{TokenSecret}}",
+                "token": "{{AccessToken}}",
+                "consumerSecret": "{{CustomerSecret}}",
+                "consumerKey": "{{CustomerKey}}",
+                "addParamsToHeader": true,
+                "signatureMethod": "HMAC-SHA1",
+                "version": "1.0",
+                "addEmptyParamsToSign": false
+              }
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"tin\": \"1111111111\",\n\t\"memberid\": \"123456789\",\n\t\"dob\": \"05/23/1987\",\n\t\"searchmodifiers\": \"\"\n}"
+            },
+            "url": {
+              "raw": "https://{{env}}.healthx.com/API/EligibilityV1/JSON/Bot/Provider/Search/ID?instanceid={{instanceID}}",
+              "protocol": "https",
+              "host": [
+                "{{env}}",
+                "healthx",
+                "com"
+              ],
+              "path": [
+                "API",
+                "EligibilityV1",
+                "JSON",
+                "Bot",
+                "Provider",
+                "Search",
+                "ID"
+              ],
+              "query": [
+                {
+                  "key": "instanceid",
+                  "value": "{{instanceID}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "No Records Valid Request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "8f22dc76-ea0c-466f-ade0-0f54a4105cd0",
+                "exec": [
+                  "pm.test(\"No results\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.Records.length).to.eql(0);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "8d14962a-e902-4951-92f4-1208083eb484",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth1",
+              "oauth1": {
+                "tokenSecret": "{{TokenSecret}}",
+                "token": "{{AccessToken}}",
+                "consumerSecret": "{{CustomerSecret}}",
+                "consumerKey": "{{CustomerKey}}",
+                "addParamsToHeader": true,
+                "signatureMethod": "HMAC-SHA1",
+                "version": "1.0",
+                "addEmptyParamsToSign": false
+              }
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"tin\": \"1111111111\",\n\t\"memberid\": \"314159265111\",\n\t\"dob\": \"05/23/1987\",\n\t\"searchmodifiers\": \"\"\n}"
+            },
+            "url": {
+              "raw": "https://{{env}}.healthx.com/API/EligibilityV1/JSON/Bot/Provider/Search/ID?instanceid={{instanceID}}",
+              "protocol": "https",
+              "host": [
+                "{{env}}",
+                "healthx",
+                "com"
+              ],
+              "path": [
+                "API",
+                "EligibilityV1",
+                "JSON",
+                "Bot",
+                "Provider",
+                "Search",
+                "ID"
+              ],
+              "query": [
+                {
+                  "key": "instanceid",
+                  "value": "{{instanceID}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Invalid Authentication Request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "08ad63a4-8588-40c9-8d98-f1db4f3b6368",
+                "exec": [
+                  "pm.test(\"Status code is 401\", function () {",
+                  "    pm.response.to.have.status(401);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "5dfd79b4-5b97-4a34-b083-5afd59ff9888",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth1",
+              "oauth1": {
+                "tokenSecret": "",
+                "token": "",
+                "consumerSecret": "",
+                "consumerKey": "",
+                "addParamsToHeader": true,
+                "signatureMethod": "HMAC-SHA1",
+                "version": "1.0",
+                "addEmptyParamsToSign": false
+              }
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"tin\": \"1111111111\",\n\t\"memberid\": \"189189-01\",\n\t\"dob\": \"06/10/1960\",\n\t\"searchmodifiers\": \"\"\n}"
+            },
+            "url": {
+              "raw": "https://{{env}}.healthx.com/API/EligibilityV1/JSON/Bot/Provider/Search/ID?instanceid={{instanceID}}",
+              "protocol": "https",
+              "host": [
+                "{{env}}",
+                "healthx",
+                "com"
+              ],
+              "path": [
+                "API",
+                "EligibilityV1",
+                "JSON",
+                "Bot",
+                "Provider",
+                "Search",
+                "ID"
+              ],
+              "query": [
+                {
+                  "key": "instanceid",
+                  "value": "{{instanceID}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Blank TIN Request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "e40c93ff-f27a-46cf-9c54-ad24e828fba7",
+                "exec": [
+                  "pm.test(\"Status code is 500\", function () {",
+                  "    pm.response.to.have.status(500);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "1405cefd-1cbc-4b43-9003-0947fb86c85c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth1",
+              "oauth1": {
+                "tokenSecret": "{{TokenSecret}}",
+                "token": "{{AccessToken}}",
+                "consumerSecret": "{{CustomerSecret}}",
+                "consumerKey": "{{CustomerKey}}",
+                "addParamsToHeader": true,
+                "signatureMethod": "HMAC-SHA1",
+                "version": "1.0",
+                "addEmptyParamsToSign": false
+              }
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"tin\": \"\",\n\t\"memberid\": \"189189-01\",\n\t\"dob\": \"06/10/1960\",\n\t\"searchmodifiers\": \"\"\n}"
+            },
+            "url": {
+              "raw": "https://{{env}}.healthx.com/API/EligibilityV1/JSON/Bot/Provider/Search/ID?instanceid={{instanceID}}",
+              "protocol": "https",
+              "host": [
+                "{{env}}",
+                "healthx",
+                "com"
+              ],
+              "path": [
+                "API",
+                "EligibilityV1",
+                "JSON",
+                "Bot",
+                "Provider",
+                "Search",
+                "ID"
+              ],
+              "query": [
+                {
+                  "key": "instanceid",
+                  "value": "{{instanceID}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Missing TIN Request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "6f27a7d3-ddf2-4494-a7a2-a6b456fd458b",
+                "exec": [
+                  "pm.test(\"Status code is 500\", function () {",
+                  "    pm.response.to.have.status(500);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "539488c3-0779-427f-91bd-4ebb278b5d9b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth1",
+              "oauth1": {
+                "tokenSecret": "{{TokenSecret}}",
+                "token": "{{AccessToken}}",
+                "consumerSecret": "{{CustomerSecret}}",
+                "consumerKey": "{{CustomerKey}}",
+                "addParamsToHeader": true,
+                "signatureMethod": "HMAC-SHA1",
+                "version": "1.0",
+                "addEmptyParamsToSign": false
+              }
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"memberid\": \"189189-01\",\n\t\"dob\": \"06/10/1960\",\n\t\"searchmodifiers\": \"\"\n}"
+            },
+            "url": {
+              "raw": "https://{{env}}.healthx.com/API/EligibilityV1/JSON/Bot/Provider/Search/ID?instanceid={{instanceID}}",
+              "protocol": "https",
+              "host": [
+                "{{env}}",
+                "healthx",
+                "com"
+              ],
+              "path": [
+                "API",
+                "EligibilityV1",
+                "JSON",
+                "Bot",
+                "Provider",
+                "Search",
+                "ID"
+              ],
+              "query": [
+                {
+                  "key": "instanceid",
+                  "value": "{{instanceID}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Blank MemberID Request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "a523f07c-ec00-49e2-8bab-e3d022f789e6",
+                "exec": [
+                  "pm.test(\"Status code is 500\", function () {",
+                  "    pm.response.to.have.status(500);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "e9907561-d161-434e-9f44-a759b41c8c6f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth1",
+              "oauth1": {
+                "tokenSecret": "{{TokenSecret}}",
+                "token": "{{AccessToken}}",
+                "consumerSecret": "{{CustomerSecret}}",
+                "consumerKey": "{{CustomerKey}}",
+                "addParamsToHeader": true,
+                "signatureMethod": "HMAC-SHA1",
+                "version": "1.0",
+                "addEmptyParamsToSign": false
+              }
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"tin\": \"1111111111\",\n\t\"memberid\": \"\",\n\t\"dob\": \"06/10/1960\",\n\t\"searchmodifiers\": \"\"\n}"
+            },
+            "url": {
+              "raw": "https://{{env}}.healthx.com/API/EligibilityV1/JSON/Bot/Provider/Search/ID?instanceid={{instanceID}}",
+              "protocol": "https",
+              "host": [
+                "{{env}}",
+                "healthx",
+                "com"
+              ],
+              "path": [
+                "API",
+                "EligibilityV1",
+                "JSON",
+                "Bot",
+                "Provider",
+                "Search",
+                "ID"
+              ],
+              "query": [
+                {
+                  "key": "instanceid",
+                  "value": "{{instanceID}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Missing MemberID Request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "8d8462c2-14df-4713-b308-fbd02d4bcdd4",
+                "exec": [
+                  "pm.test(\"Status code is 500\", function () {",
+                  "    pm.response.to.have.status(500);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "10e67c48-ea07-4fac-a8c4-c69c3f1ed274",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth1",
+              "oauth1": {
+                "tokenSecret": "{{TokenSecret}}",
+                "token": "{{AccessToken}}",
+                "consumerSecret": "{{CustomerSecret}}",
+                "consumerKey": "{{CustomerKey}}",
+                "addParamsToHeader": true,
+                "signatureMethod": "HMAC-SHA1",
+                "version": "1.0",
+                "addEmptyParamsToSign": false
+              }
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"tin\": \"1111111111\",\n\t\"dob\": \"06/10/1960\",\n\t\"searchmodifiers\": \"\"\n}"
+            },
+            "url": {
+              "raw": "https://{{env}}.healthx.com/API/EligibilityV1/JSON/Bot/Provider/Search/ID?instanceid={{instanceID}}",
+              "protocol": "https",
+              "host": [
+                "{{env}}",
+                "healthx",
+                "com"
+              ],
+              "path": [
+                "API",
+                "EligibilityV1",
+                "JSON",
+                "Bot",
+                "Provider",
+                "Search",
+                "ID"
+              ],
+              "query": [
+                {
+                  "key": "instanceid",
+                  "value": "{{instanceID}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Invalid DOB Request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "bf5b371c-5949-4ecd-a3c5-f31565ffe7c3",
+                "exec": [
+                  "pm.test(\"Status code is 500\", function () {",
+                  "    pm.response.to.have.status(500);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "56e7b334-1501-4cc2-938b-9fa085879c9a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth1",
+              "oauth1": {
+                "tokenSecret": "{{TokenSecret}}",
+                "token": "{{AccessToken}}",
+                "consumerSecret": "{{CustomerSecret}}",
+                "consumerKey": "{{CustomerKey}}",
+                "addParamsToHeader": true,
+                "signatureMethod": "HMAC-SHA1",
+                "version": "1.0",
+                "addEmptyParamsToSign": false
+              }
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"tin\": \"1111111111\",\n\t\"memberid\": \"189189-01\",\n\t\"dob\": \"06/10/19601\",\n\t\"searchmodifiers\": \"\"\n}"
+            },
+            "url": {
+              "raw": "https://{{env}}.healthx.com/API/EligibilityV1/JSON/Bot/Provider/Search/ID?instanceid={{instanceID}}",
+              "protocol": "https",
+              "host": [
+                "{{env}}",
+                "healthx",
+                "com"
+              ],
+              "path": [
+                "API",
+                "EligibilityV1",
+                "JSON",
+                "Bot",
+                "Provider",
+                "Search",
+                "ID"
+              ],
+              "query": [
+                {
+                  "key": "instanceid",
+                  "value": "{{instanceID}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Blank DOB Request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "0f33fa14-a4d1-4bd5-bf2a-7c7538f91db5",
+                "exec": [
+                  "pm.test(\"Status code is 500\", function () {",
+                  "    pm.response.to.have.status(500);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "dd980112-5c4c-4287-ab23-cff3ad989d23",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth1",
+              "oauth1": {
+                "tokenSecret": "{{TokenSecret}}",
+                "token": "{{AccessToken}}",
+                "consumerSecret": "{{CustomerSecret}}",
+                "consumerKey": "{{CustomerKey}}",
+                "addParamsToHeader": true,
+                "signatureMethod": "HMAC-SHA1",
+                "version": "1.0",
+                "addEmptyParamsToSign": false
+              }
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"tin\": \"1111111111\",\n\t\"memberid\": \"189189-01\",\n\t\"dob\": \"\",\n\t\"searchmodifiers\": \"\"\n}"
+            },
+            "url": {
+              "raw": "https://{{env}}.healthx.com/API/EligibilityV1/JSON/Bot/Provider/Search/ID?instanceid={{instanceID}}",
+              "protocol": "https",
+              "host": [
+                "{{env}}",
+                "healthx",
+                "com"
+              ],
+              "path": [
+                "API",
+                "EligibilityV1",
+                "JSON",
+                "Bot",
+                "Provider",
+                "Search",
+                "ID"
+              ],
+              "query": [
+                {
+                  "key": "instanceid",
+                  "value": "{{instanceID}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Missing DOB Request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "ea2a6745-05ff-47c3-8f98-d8b2acac510b",
+                "exec": [
+                  "pm.test(\"Status code is 500\", function () {",
+                  "    pm.response.to.have.status(500);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "e67f68b6-4418-48cd-af3a-ed81ea6926cc",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth1",
+              "oauth1": {
+                "tokenSecret": "{{TokenSecret}}",
+                "token": "{{AccessToken}}",
+                "consumerSecret": "{{CustomerSecret}}",
+                "consumerKey": "{{CustomerKey}}",
+                "addParamsToHeader": true,
+                "signatureMethod": "HMAC-SHA1",
+                "version": "1.0",
+                "addEmptyParamsToSign": false
+              }
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"tin\": \"1111111111\",\n\t\"memberid\": \"189189-01\",\n\t\"searchmodifiers\": \"\"\n}"
+            },
+            "url": {
+              "raw": "https://{{env}}.healthx.com/API/EligibilityV1/JSON/Bot/Provider/Search/ID?instanceid={{instanceID}}",
+              "protocol": "https",
+              "host": [
+                "{{env}}",
+                "healthx",
+                "com"
+              ],
+              "path": [
+                "API",
+                "EligibilityV1",
+                "JSON",
+                "Bot",
+                "Provider",
+                "Search",
+                "ID"
+              ],
+              "query": [
+                {
+                  "key": "instanceid",
+                  "value": "{{instanceID}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Blank Body Request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "efee8e3b-1d9b-4e4d-b63d-9c6e4e0929ac",
+                "exec": [
+                  "pm.test(\"Status code is 500\", function () {",
+                  "    pm.response.to.have.status(500);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "8b58de9f-b63c-411b-ba47-8a9edc2383de",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth1",
+              "oauth1": {
+                "tokenSecret": "{{TokenSecret}}",
+                "token": "{{AccessToken}}",
+                "consumerSecret": "{{CustomerSecret}}",
+                "consumerKey": "{{CustomerKey}}",
+                "addParamsToHeader": true,
+                "signatureMethod": "HMAC-SHA1",
+                "version": "1.0",
+                "addEmptyParamsToSign": false
+              }
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "https://{{env}}.healthx.com/API/EligibilityV1/JSON/Bot/Provider/Search/ID?instanceid={{instanceID}}",
+              "protocol": "https",
+              "host": [
+                "{{env}}",
+                "healthx",
+                "com"
+              ],
+              "path": [
+                "API",
+                "EligibilityV1",
+                "JSON",
+                "Bot",
+                "Provider",
+                "Search",
+                "ID"
+              ],
+              "query": [
+                {
+                  "key": "instanceid",
+                  "value": "{{instanceID}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "b83604ac-eed0-4772-8df3-6f0c80ba6abf"
+    },
+    {
+      "name": "Claims",
+      "item": [
+        {
+          "name": "Single Record Valid Request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "bc77abcd-6356-44bd-af29-11738da02a41",
+                "exec": [
+                  "pm.test(\"Multiple results\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.Records.length).to.eq(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "3a50e5dc-2928-4a6d-afda-83532e362a8c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth1",
+              "oauth1": {
+                "tokenSecret": "{{TokenSecret}}",
+                "token": "{{AccessToken}}",
+                "consumerSecret": "{{CustomerSecret}}",
+                "consumerKey": "{{CustomerKey}}",
+                "addParamsToHeader": true,
+                "signatureMethod": "HMAC-SHA1",
+                "version": "1.0",
+                "addEmptyParamsToSign": false
+              }
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"tin\": \"0314581801\",\n\t\"memberid\": \"11111111103-15\",\n\t\"dob\": \"05/07/2010\",\n\t\"dosstart\":\"01/01/2016\",\n\t\"searchmodifiers\": \"\"\n}"
+            },
+            "url": {
+              "raw": "https://{{env}}.healthx.com/API/ClaimsV1/JSON/Bot/Provider/Search/date?instanceid={{instanceID}}",
+              "protocol": "https",
+              "host": [
+                "{{env}}",
+                "healthx",
+                "com"
+              ],
+              "path": [
+                "API",
+                "ClaimsV1",
+                "JSON",
+                "Bot",
+                "Provider",
+                "Search",
+                "date"
+              ],
+              "query": [
+                {
+                  "key": "instanceid",
+                  "value": "{{instanceID}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Multiple Records Valid Request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "90a02a87-ae0d-4797-8726-7d7e4047acba",
+                "exec": [
+                  "pm.test(\"Multiple results\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.Records.length).gt(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "3c5ce5f7-9f71-473b-9405-cf870f5bbc15",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth1",
+              "oauth1": {
+                "tokenSecret": "{{TokenSecret}}",
+                "token": "{{AccessToken}}",
+                "consumerSecret": "{{CustomerSecret}}",
+                "consumerKey": "{{CustomerKey}}",
+                "addParamsToHeader": true,
+                "signatureMethod": "HMAC-SHA1",
+                "version": "1.0",
+                "addEmptyParamsToSign": false
+              }
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"tin\": \"0314581801\",\n\t\"memberid\": \"11111111100-15\",\n\t\"dob\": \"01/05/1962\",\n\t\"dosstart\":\"01/01/2016\",\n\t\"searchmodifiers\": \"\"\n}"
+            },
+            "url": {
+              "raw": "https://{{env}}.healthx.com/API/ClaimsV1/JSON/Bot/Provider/Search/date?instanceid={{instanceID}}",
+              "protocol": "https",
+              "host": [
+                "{{env}}",
+                "healthx",
+                "com"
+              ],
+              "path": [
+                "API",
+                "ClaimsV1",
+                "JSON",
+                "Bot",
+                "Provider",
+                "Search",
+                "date"
+              ],
+              "query": [
+                {
+                  "key": "instanceid",
+                  "value": "{{instanceID}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Multiple TINS Valid Request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "f1814112-59ae-4668-b9cb-09f7eb26fe2d",
+                "exec": [
+                  "pm.test(\"Multiple results\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.Records.length).gt(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "9851b984-5976-4aa6-bed9-41b7ab0c193e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth1",
+              "oauth1": {
+                "tokenSecret": "{{TokenSecret}}",
+                "token": "{{AccessToken}}",
+                "consumerSecret": "{{CustomerSecret}}",
+                "consumerKey": "{{CustomerKey}}",
+                "addParamsToHeader": true,
+                "signatureMethod": "HMAC-SHA1",
+                "version": "1.0",
+                "addEmptyParamsToSign": false
+              }
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"tin\": \"0314581801,2252394100\",\n\t\"memberid\": \"11111111100-15\",\n\t\"dob\": \"01/05/1962\",\n\t\"dosstart\":\"01/01/2016\",\n\t\"searchmodifiers\": \"\"\n}"
+            },
+            "url": {
+              "raw": "https://{{env}}.healthx.com/API/ClaimsV1/JSON/Bot/Provider/Search/date?instanceid={{instanceID}}",
+              "protocol": "https",
+              "host": [
+                "{{env}}",
+                "healthx",
+                "com"
+              ],
+              "path": [
+                "API",
+                "ClaimsV1",
+                "JSON",
+                "Bot",
+                "Provider",
+                "Search",
+                "date"
+              ],
+              "query": [
+                {
+                  "key": "instanceid",
+                  "value": "{{instanceID}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "No Records Valid Request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "2b1f8668-10a8-4476-bf6d-efd853ec79f0",
+                "exec": [
+                  "pm.test(\"No results\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.Records.length).to.eql(0);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "e366aa3d-e161-41e7-82bd-1808a02d3ec3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth1",
+              "oauth1": {
+                "tokenSecret": "{{TokenSecret}}",
+                "token": "{{AccessToken}}",
+                "consumerSecret": "{{CustomerSecret}}",
+                "consumerKey": "{{CustomerKey}}",
+                "addParamsToHeader": true,
+                "signatureMethod": "HMAC-SHA1",
+                "version": "1.0",
+                "addEmptyParamsToSign": false
+              }
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"tin\": \"111111111\",\n\t\"memberid\": \"18918-01\",\n\t\"dob\": \"06/10/1960\",\n\t\"dosstart\":\"01/01/2019\",\n\t\"searchmodifiers\": \"\"\n}"
+            },
+            "url": {
+              "raw": "https://{{env}}.healthx.com/API/ClaimsV1/JSON/Bot/Provider/Search/date?instanceid={{instanceID}}",
+              "protocol": "https",
+              "host": [
+                "{{env}}",
+                "healthx",
+                "com"
+              ],
+              "path": [
+                "API",
+                "ClaimsV1",
+                "JSON",
+                "Bot",
+                "Provider",
+                "Search",
+                "date"
+              ],
+              "query": [
+                {
+                  "key": "instanceid",
+                  "value": "{{instanceID}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Invalid Authentication Request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "468a427f-44f8-4ae5-8dec-7b61fe471599",
+                "exec": [
+                  "pm.test(\"Status code is 401\", function () {",
+                  "    pm.response.to.have.status(401);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "676ad853-b343-4a5e-ae40-c90dfa892746",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth1",
+              "oauth1": {
+                "consumerKey": "",
+                "consumerSecret": "",
+                "token": "",
+                "tokenSecret": "",
+                "addParamsToHeader": true,
+                "signatureMethod": "HMAC-SHA1",
+                "version": "1.0",
+                "addEmptyParamsToSign": false
+              }
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"tin\": \"0314581801\",\n\t\"memberid\": \"11111111103-15\",\n\t\"dob\": \"05/07/2010\",\n\t\"dosstart\":\"01/01/2016\",\n\t\"searchmodifiers\": \"\"\n}"
+            },
+            "url": {
+              "raw": "https://{{env}}.healthx.com/API/ClaimsV1/JSON/Bot/Provider/Search/date?instanceid={{instanceID}}",
+              "protocol": "https",
+              "host": [
+                "{{env}}",
+                "healthx",
+                "com"
+              ],
+              "path": [
+                "API",
+                "ClaimsV1",
+                "JSON",
+                "Bot",
+                "Provider",
+                "Search",
+                "date"
+              ],
+              "query": [
+                {
+                  "key": "instanceid",
+                  "value": "{{instanceID}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Blank TIN Request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "4e64820f-e7d7-4e2f-9901-980b9bdb2e13",
+                "exec": [
+                  "pm.test(\"Status code is 500\", function () {",
+                  "    pm.response.to.have.status(500);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "4bda3237-e2d7-4375-9140-bff7cc84b5b2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth1",
+              "oauth1": {
+                "tokenSecret": "{{TokenSecret}}",
+                "token": "{{AccessToken}}",
+                "consumerSecret": "{{CustomerSecret}}",
+                "consumerKey": "{{CustomerKey}}",
+                "addParamsToHeader": true,
+                "signatureMethod": "HMAC-SHA1",
+                "version": "1.0",
+                "addEmptyParamsToSign": false
+              }
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"tin\": \"\",\n\t\"memberid\": \"189189-01\",\n\t\"dob\": \"06/10/1960\",\n\t\"dosstart\":\"01/01/2019\",\n\t\"searchmodifiers\": \"\"\n}"
+            },
+            "url": {
+              "raw": "https://{{env}}.healthx.com/API/ClaimsV1/JSON/Bot/Provider/Search/date?instanceid={{instanceID}}",
+              "protocol": "https",
+              "host": [
+                "{{env}}",
+                "healthx",
+                "com"
+              ],
+              "path": [
+                "API",
+                "ClaimsV1",
+                "JSON",
+                "Bot",
+                "Provider",
+                "Search",
+                "date"
+              ],
+              "query": [
+                {
+                  "key": "instanceid",
+                  "value": "{{instanceID}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Missing TIN Request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "de62fa88-ba92-401a-a1ae-c675e7a9d8cb",
+                "exec": [
+                  "pm.test(\"Status code is 500\", function () {",
+                  "    pm.response.to.have.status(500);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "1d969390-6471-4612-966d-fbdea3331004",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth1",
+              "oauth1": {
+                "tokenSecret": "{{TokenSecret}}",
+                "token": "{{AccessToken}}",
+                "consumerSecret": "{{CustomerSecret}}",
+                "consumerKey": "{{CustomerKey}}",
+                "addParamsToHeader": true,
+                "signatureMethod": "HMAC-SHA1",
+                "version": "1.0",
+                "addEmptyParamsToSign": false
+              }
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"memberid\": \"189189-01\",\n\t\"dob\": \"06/10/1960\",\n\t\"dosstart\":\"01/01/2019\",\n\t\"searchmodifiers\": \"\"\n}"
+            },
+            "url": {
+              "raw": "https://{{env}}.healthx.com/API/ClaimsV1/JSON/Bot/Provider/Search/date?instanceid={{instanceID}}",
+              "protocol": "https",
+              "host": [
+                "{{env}}",
+                "healthx",
+                "com"
+              ],
+              "path": [
+                "API",
+                "ClaimsV1",
+                "JSON",
+                "Bot",
+                "Provider",
+                "Search",
+                "date"
+              ],
+              "query": [
+                {
+                  "key": "instanceid",
+                  "value": "{{instanceID}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Invalid DOB Request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "51010e01-a8a2-4177-9561-8aa313ce7105",
+                "exec": [
+                  "pm.test(\"Status code is 500\", function () {",
+                  "    pm.response.to.have.status(500);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "4b2f8f80-4d0d-4a0b-b150-811c449de3cd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth1",
+              "oauth1": {
+                "tokenSecret": "{{TokenSecret}}",
+                "token": "{{AccessToken}}",
+                "consumerSecret": "{{CustomerSecret}}",
+                "consumerKey": "{{CustomerKey}}",
+                "addParamsToHeader": true,
+                "signatureMethod": "HMAC-SHA1",
+                "version": "1.0",
+                "addEmptyParamsToSign": false
+              }
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"tin\": \"111111111\",\n\t\"memberid\": \"189189-01\",\n\t\"dob\": \"06/10/19601\",\n\t\"dosstart\":\"01/01/2019\",\n\t\"searchmodifiers\": \"\"\n}"
+            },
+            "url": {
+              "raw": "https://{{env}}.healthx.com/API/ClaimsV1/JSON/Bot/Provider/Search/date?instanceid={{instanceID}}",
+              "protocol": "https",
+              "host": [
+                "{{env}}",
+                "healthx",
+                "com"
+              ],
+              "path": [
+                "API",
+                "ClaimsV1",
+                "JSON",
+                "Bot",
+                "Provider",
+                "Search",
+                "date"
+              ],
+              "query": [
+                {
+                  "key": "instanceid",
+                  "value": "{{instanceID}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Blank DOB Request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "f1390b33-75af-4e21-9d63-021cbb2c3040",
+                "exec": [
+                  "pm.test(\"Status code is 500\", function () {",
+                  "    pm.response.to.have.status(500);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "baf715d5-09ad-462e-bed6-0299e48c53c2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth1",
+              "oauth1": {
+                "tokenSecret": "{{TokenSecret}}",
+                "token": "{{AccessToken}}",
+                "consumerSecret": "{{CustomerSecret}}",
+                "consumerKey": "{{CustomerKey}}",
+                "addParamsToHeader": true,
+                "signatureMethod": "HMAC-SHA1",
+                "version": "1.0",
+                "addEmptyParamsToSign": false
+              }
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"tin\": \"111111111\",\n\t\"memberid\": \"189189-01\",\n\t\"dob\": \"\",\n\t\"dosstart\":\"01/01/2019\",\n\t\"searchmodifiers\": \"\"\n}"
+            },
+            "url": {
+              "raw": "https://{{env}}.healthx.com/API/ClaimsV1/JSON/Bot/Provider/Search/date?instanceid={{instanceID}}",
+              "protocol": "https",
+              "host": [
+                "{{env}}",
+                "healthx",
+                "com"
+              ],
+              "path": [
+                "API",
+                "ClaimsV1",
+                "JSON",
+                "Bot",
+                "Provider",
+                "Search",
+                "date"
+              ],
+              "query": [
+                {
+                  "key": "instanceid",
+                  "value": "{{instanceID}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Missing DOB Request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "e84264fe-2c21-45d5-ab0f-3f87dda3adb3",
+                "exec": [
+                  "pm.test(\"Status code is 500\", function () {",
+                  "    pm.response.to.have.status(500);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "8a428e50-1699-46a7-8290-8aa0f938abbb",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth1",
+              "oauth1": {
+                "tokenSecret": "{{TokenSecret}}",
+                "token": "{{AccessToken}}",
+                "consumerSecret": "{{CustomerSecret}}",
+                "consumerKey": "{{CustomerKey}}",
+                "addParamsToHeader": true,
+                "signatureMethod": "HMAC-SHA1",
+                "version": "1.0",
+                "addEmptyParamsToSign": false
+              }
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"tin\": \"111111111\",\n\t\"memberid\": \"189189-01\",\n\t\"dosstart\":\"01/01/2019\",\n\t\"searchmodifiers\": \"\"\n}"
+            },
+            "url": {
+              "raw": "https://{{env}}.healthx.com/API/ClaimsV1/JSON/Bot/Provider/Search/date?instanceid={{instanceID}}",
+              "protocol": "https",
+              "host": [
+                "{{env}}",
+                "healthx",
+                "com"
+              ],
+              "path": [
+                "API",
+                "ClaimsV1",
+                "JSON",
+                "Bot",
+                "Provider",
+                "Search",
+                "date"
+              ],
+              "query": [
+                {
+                  "key": "instanceid",
+                  "value": "{{instanceID}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Blank MemberID Request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "29331a6f-4537-42f4-a422-25fe2cf5bac2",
+                "exec": [
+                  "pm.test(\"Status code is 500\", function () {",
+                  "    pm.response.to.have.status(500);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "26213e1c-26d4-4ee1-82c8-b711c24ff981",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth1",
+              "oauth1": {
+                "tokenSecret": "{{TokenSecret}}",
+                "token": "{{AccessToken}}",
+                "consumerSecret": "{{CustomerSecret}}",
+                "consumerKey": "{{CustomerKey}}",
+                "addParamsToHeader": true,
+                "signatureMethod": "HMAC-SHA1",
+                "version": "1.0",
+                "addEmptyParamsToSign": false
+              }
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"tin\": \"111111111\",\n\t\"memberid\": \"\",\n\t\"dob\": \"06/10/1960\",\n\t\"dosstart\":\"01/01/2019\",\n\t\"searchmodifiers\": \"\"\n}"
+            },
+            "url": {
+              "raw": "https://{{env}}.healthx.com/API/ClaimsV1/JSON/Bot/Provider/Search/date?instanceid={{instanceID}}",
+              "protocol": "https",
+              "host": [
+                "{{env}}",
+                "healthx",
+                "com"
+              ],
+              "path": [
+                "API",
+                "ClaimsV1",
+                "JSON",
+                "Bot",
+                "Provider",
+                "Search",
+                "date"
+              ],
+              "query": [
+                {
+                  "key": "instanceid",
+                  "value": "{{instanceID}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Missing MemberID Request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "d709c307-c666-4ee4-86d5-06e31afbdf91",
+                "exec": [
+                  "pm.test(\"Status code is 500\", function () {",
+                  "    pm.response.to.have.status(500);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "b6825d7e-b67d-439d-84bd-df83e51f741b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth1",
+              "oauth1": {
+                "tokenSecret": "{{TokenSecret}}",
+                "token": "{{AccessToken}}",
+                "consumerSecret": "{{CustomerSecret}}",
+                "consumerKey": "{{CustomerKey}}",
+                "addParamsToHeader": true,
+                "signatureMethod": "HMAC-SHA1",
+                "version": "1.0",
+                "addEmptyParamsToSign": false
+              }
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"tin\": \"111111111\",\n\t\"dob\": \"06/10/1960\",\n\t\"dosstart\":\"01/01/2019\",\n\t\"searchmodifiers\": \"\"\n}"
+            },
+            "url": {
+              "raw": "https://{{env}}.healthx.com/API/ClaimsV1/JSON/Bot/Provider/Search/date?instanceid={{instanceID}}",
+              "protocol": "https",
+              "host": [
+                "{{env}}",
+                "healthx",
+                "com"
+              ],
+              "path": [
+                "API",
+                "ClaimsV1",
+                "JSON",
+                "Bot",
+                "Provider",
+                "Search",
+                "date"
+              ],
+              "query": [
+                {
+                  "key": "instanceid",
+                  "value": "{{instanceID}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Blank Body Request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "1b2adb25-e45a-447b-a88e-b4877d5ca7d3",
+                "exec": [
+                  "pm.test(\"Status code is 500\", function () {",
+                  "    pm.response.to.have.status(500);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "cde61410-5ee7-405d-bb0b-06dd255d6735",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth1",
+              "oauth1": {
+                "tokenSecret": "{{TokenSecret}}",
+                "token": "{{AccessToken}}",
+                "consumerSecret": "{{CustomerSecret}}",
+                "consumerKey": "{{CustomerKey}}",
+                "addParamsToHeader": true,
+                "signatureMethod": "HMAC-SHA1",
+                "version": "1.0",
+                "addEmptyParamsToSign": false
+              }
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n}"
+            },
+            "url": {
+              "raw": "https://{{env}}.healthx.com/API/ClaimsV1/JSON/Bot/Provider/Search/date?instanceid={{instanceID}}",
+              "protocol": "https",
+              "host": [
+                "{{env}}",
+                "healthx",
+                "com"
+              ],
+              "path": [
+                "API",
+                "ClaimsV1",
+                "JSON",
+                "Bot",
+                "Provider",
+                "Search",
+                "date"
+              ],
+              "query": [
+                {
+                  "key": "instanceid",
+                  "value": "{{instanceID}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "f6440bc0-80c9-4cc6-ba95-842e38ac630a"
+    }
+  ]
+}
