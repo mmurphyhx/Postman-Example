@@ -900,7 +900,30 @@
           "response": []
         }
       ],
-      "_postman_id": "b83604ac-eed0-4772-8df3-6f0c80ba6abf"
+      "_postman_id": "b83604ac-eed0-4772-8df3-6f0c80ba6abf",
+      "description": "Description of the Eligibility Requests",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "94a52fd2-908d-4253-a3e1-a5784146b441",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "80f645aa-0fe7-4c6b-bfe0-f5f76ed78700",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
     },
     {
       "name": "Claims",
