@@ -974,7 +974,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"tin\": \"0314581801\",\n\t\"memberid\": \"11111111103-15\",\n\t\"dob\": \"05/07/2010\",\n\t\"dosstart\":\"01/01/2016\",\n\t\"searchmodifiers\": \"\"\n}"
+              "raw": "{\n\t\"tin\": \"0314581801\",\n\t\"memberid\": \"11111111103-15\",\n\t\"dob\": \"05/07/2010\",\n\t\"dosstart\":\"01/28/2019\",\n\t\"searchmodifiers\": \"\"\n}"
             },
             "url": {
               "raw": "https://{{env}}.healthx.com/API/ClaimsV1/JSON/Bot/Provider/Search/date?instanceid={{instanceID}}",
@@ -1049,7 +1049,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"tin\": \"0314581801\",\n\t\"memberid\": \"11111111100-15\",\n\t\"dob\": \"01/05/1962\",\n\t\"dosstart\":\"01/01/2016\",\n\t\"searchmodifiers\": \"\"\n}"
+              "raw": "{\n\t\"tin\": \"0314581801\",\n\t\"memberid\": \"11111111100-15\",\n\t\"dob\": \"01/05/1962\",\n\t\"searchmodifiers\": \"\"\n}"
             },
             "url": {
               "raw": "https://{{env}}.healthx.com/API/ClaimsV1/JSON/Bot/Provider/Search/date?instanceid={{instanceID}}",
