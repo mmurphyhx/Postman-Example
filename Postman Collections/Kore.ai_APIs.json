@@ -1124,7 +1124,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"tin\": \"0314581801,2252394100\",\n\t\"memberid\": \"11111111100-15\",\n\t\"dob\": \"01/05/1962\",\n\t\"dosstart\":\"01/01/2016\",\n\t\"searchmodifiers\": \"\"\n}"
+              "raw": "{\n\t\"tin\": \"0314581801,2252394100\",\n\t\"memberid\": \"11111111100-15\",\n\t\"dob\": \"01/05/1962\",\n\t\"searchmodifiers\": \"\"\n}"
             },
             "url": {
               "raw": "https://{{env}}.healthx.com/API/ClaimsV1/JSON/Bot/Provider/Search/date?instanceid={{instanceID}}",
