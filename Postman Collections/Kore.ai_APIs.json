@@ -929,7 +929,7 @@
       "name": "Claims",
       "item": [
         {
-          "name": "Single Record Valid Request",
+          "name": "Single Record Valid Request with TIN",
           "event": [
             {
               "listen": "test",
