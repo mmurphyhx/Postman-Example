@@ -1079,6 +1079,81 @@
           "response": []
         },
         {
+          "name": "Single Record Valid Request with NPI",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "bc77abcd-6356-44bd-af29-11738da02a41",
+                "exec": [
+                  "pm.test(\"Multiple results\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.Records.length).to.eq(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "41ecba2d-501d-49e9-87aa-006f243e1f55",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth1",
+              "oauth1": {
+                "tokenSecret": "{{TokenSecret}}",
+                "token": "{{AccessToken}}",
+                "consumerSecret": "{{CustomerSecret}}",
+                "consumerKey": "{{CustomerKey}}",
+                "addParamsToHeader": true,
+                "signatureMethod": "HMAC-SHA1",
+                "version": "1.0",
+                "addEmptyParamsToSign": false
+              }
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"npi\": \"575255553\",\n\t\"memberid\": \"11111111103-15\",\n\t\"dob\": \"05/07/2010\",\n\t\"dosstart\":\"01/28/2019\",\n\t\"searchmodifiers\": \"\"\n}"
+            },
+            "url": {
+              "raw": "https://{{env}}.healthx.com/API/ClaimsV1/JSON/Bot/Provider/Search/date?instanceid={{instanceID}}",
+              "protocol": "https",
+              "host": [
+                "{{env}}",
+                "healthx",
+                "com"
+              ],
+              "path": [
+                "API",
+                "ClaimsV1",
+                "JSON",
+                "Bot",
+                "Provider",
+                "Search",
+                "date"
+              ],
+              "query": [
+                {
+                  "key": "instanceid",
+                  "value": "{{instanceID}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
           "name": "Multiple Records Valid Request",
           "event": [
             {
@@ -1941,81 +2016,6 @@
             "body": {
               "mode": "raw",
               "raw": "{\n}"
-            },
-            "url": {
-              "raw": "https://{{env}}.healthx.com/API/ClaimsV1/JSON/Bot/Provider/Search/date?instanceid={{instanceID}}",
-              "protocol": "https",
-              "host": [
-                "{{env}}",
-                "healthx",
-                "com"
-              ],
-              "path": [
-                "API",
-                "ClaimsV1",
-                "JSON",
-                "Bot",
-                "Provider",
-                "Search",
-                "date"
-              ],
-              "query": [
-                {
-                  "key": "instanceid",
-                  "value": "{{instanceID}}"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Single Record Valid Request with NPI",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "bc77abcd-6356-44bd-af29-11738da02a41",
-                "exec": [
-                  "pm.test(\"Multiple results\", function () {",
-                  "    var jsonData = pm.response.json();",
-                  "    pm.expect(jsonData.Records.length).to.eq(1);",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "41ecba2d-501d-49e9-87aa-006f243e1f55",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "oauth1",
-              "oauth1": {
-                "tokenSecret": "{{TokenSecret}}",
-                "token": "{{AccessToken}}",
-                "consumerSecret": "{{CustomerSecret}}",
-                "consumerKey": "{{CustomerKey}}",
-                "addParamsToHeader": true,
-                "signatureMethod": "HMAC-SHA1",
-                "version": "1.0",
-                "addEmptyParamsToSign": false
-              }
-            },
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "name": "Content-Type",
-                "value": "application/json",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"npi\": \"575255553\",\n\t\"memberid\": \"11111111103-15\",\n\t\"dob\": \"05/07/2010\",\n\t\"dosstart\":\"01/28/2019\",\n\t\"searchmodifiers\": \"\"\n}"
             },
             "url": {
               "raw": "https://{{env}}.healthx.com/API/ClaimsV1/JSON/Bot/Provider/Search/date?instanceid={{instanceID}}",
