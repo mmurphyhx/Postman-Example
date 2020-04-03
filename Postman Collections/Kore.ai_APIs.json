@@ -123,13 +123,13 @@
               {
                 "key": "Content-Type",
                 "name": "Content-Type",
-                "value": "application/json",
-                "type": "text"
+                "type": "text",
+                "value": "application/json"
               }
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"tin\": \"1111111111\",\n\t\"memberid\": \"66666666600\",\n\t\"dob\": \"01/05/1962\",\n\t\"searchmodifiers\": \"\"\n}",
+              "raw": "{\n\t\"tin\": \"1111111111\",\n\t\"memberid\": \"11111111102\",\n\t\"dob\": \"11/09/2007\",\n\t\"searchmodifiers\": \"\"\n}",
               "options": {
                 "raw": {}
               }
