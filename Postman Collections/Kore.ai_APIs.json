@@ -976,6 +976,84 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "Single Record Valid Request Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "8eec8725-a6f5-41f5-ab94-1be74867cffd",
+                "exec": [
+                  "pm.test(\"Multiple results\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.Records.length).to.eq(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "cdcf7257-0274-413b-a81c-784a0fc39538",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth1",
+              "oauth1": {
+                "tokenSecret": "{{TokenSecret}}",
+                "token": "{{AccessToken}}",
+                "consumerSecret": "{{CustomerSecret}}",
+                "consumerKey": "{{CustomerKey}}",
+                "addParamsToHeader": true,
+                "signatureMethod": "HMAC-SHA1",
+                "version": "1.0",
+                "addEmptyParamsToSign": false
+              }
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"tin\": \"1111111111\",\n\t\"memberid\": \"66666666600\",\n\t\"dob\": \"01/05/1962\",\n\t\"searchmodifiers\": \"\"\n}",
+              "options": {
+                "raw": {}
+              }
+            },
+            "url": {
+              "raw": "https://{{env}}.healthx.com/API/EligibilityV1/JSON/Bot/Provider/Search/ID?instanceid={{instanceID}}",
+              "protocol": "https",
+              "host": [
+                "{{env}}",
+                "healthx",
+                "com"
+              ],
+              "path": [
+                "API",
+                "EligibilityV1",
+                "JSON",
+                "Bot",
+                "Provider",
+                "Search",
+                "ID"
+              ],
+              "query": [
+                {
+                  "key": "instanceid",
+                  "value": "{{instanceID}}"
+                }
+              ]
+            }
+          },
+          "response": []
         }
       ],
       "_postman_id": "b83604ac-eed0-4772-8df3-6f0c80ba6abf",
