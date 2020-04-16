@@ -2129,7 +2129,7 @@
       "name": "Sign Up",
       "item": [
         {
-          "name": "Single Record Valid Request Copy",
+          "name": "Valid Search by NPI",
           "event": [
             {
               "listen": "test",
