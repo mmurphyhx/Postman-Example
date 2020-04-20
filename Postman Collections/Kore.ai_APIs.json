@@ -2202,6 +2202,81 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "Valid Search by NPI Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "8eec8725-a6f5-41f5-ab94-1be74867cffd",
+                "exec": [
+                  "pm.test(\"Multiple results\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.Records.length).to.eq(1);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "77cdb00c-ca77-4388-9bcb-748de5791a37",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth1",
+              "oauth1": {
+                "tokenSecret": "{{TokenSecret}}",
+                "token": "{{AccessToken}}",
+                "consumerSecret": "{{CustomerSecret}}",
+                "consumerKey": "{{CustomerKey}}",
+                "addParamsToHeader": true,
+                "signatureMethod": "HMAC-SHA1",
+                "version": "1.0",
+                "addEmptyParamsToSign": false
+              }
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"count\": 1,\n\t\"searchmodifiers\": \"npi:6950760571\"\n}",
+              "options": {
+                "raw": {}
+              }
+            },
+            "url": {
+              "raw": "https://{{env}}.healthx.com/API/SignupV1/JSON/ProvRegistrationSearch?instanceid={{instanceID}}",
+              "protocol": "https",
+              "host": [
+                "{{env}}",
+                "healthx",
+                "com"
+              ],
+              "path": [
+                "API",
+                "SignupV1",
+                "JSON",
+                "ProvRegistrationSearch"
+              ],
+              "query": [
+                {
+                  "key": "instanceid",
+                  "value": "{{instanceID}}"
+                }
+              ]
+            }
+          },
+          "response": []
         }
       ],
       "_postman_id": "62d8bdcb-7139-4006-81d0-76aaed13a425"
