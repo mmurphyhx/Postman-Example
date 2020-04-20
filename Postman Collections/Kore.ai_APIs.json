@@ -2343,6 +2343,78 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "Valid Search by TIN Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "8eec8725-a6f5-41f5-ab94-1be74867cffd",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "9e320699-90a1-4450-b094-ce3765ada47d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth1",
+              "oauth1": {
+                "tokenSecret": "{{TokenSecret}}",
+                "token": "{{AccessToken}}",
+                "consumerSecret": "{{CustomerSecret}}",
+                "consumerKey": "{{CustomerKey}}",
+                "addParamsToHeader": true,
+                "signatureMethod": "HMAC-SHA1",
+                "version": "1.0",
+                "addEmptyParamsToSign": false
+              }
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"count\": 10,\n\t\"searchmodifiers\": \"tin:253669627\"\n}",
+              "options": {
+                "raw": {}
+              }
+            },
+            "url": {
+              "raw": "https://{{env}}.healthx.com/API/SignupV1/JSON/ProvRegistrationSearch?instanceid={{instanceID}}",
+              "protocol": "https",
+              "host": [
+                "{{env}}",
+                "healthx",
+                "com"
+              ],
+              "path": [
+                "API",
+                "SignupV1",
+                "JSON",
+                "ProvRegistrationSearch"
+              ],
+              "query": [
+                {
+                  "key": "instanceid",
+                  "value": "{{instanceID}}"
+                }
+              ]
+            }
+          },
+          "response": []
         }
       ],
       "_postman_id": "62d8bdcb-7139-4006-81d0-76aaed13a425"
