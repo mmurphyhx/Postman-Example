@@ -2273,7 +2273,7 @@
           "response": []
         },
         {
-          "name": "Valid Search by TIN Copy",
+          "name": "Valid Search by TIN and NPI",
           "event": [
             {
               "listen": "test",
