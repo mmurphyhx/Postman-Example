@@ -2489,7 +2489,7 @@
           "response": []
         },
         {
-          "name": "Valid Search by TIN and NPI Copy",
+          "name": "Verify Unauthorized Serch",
           "event": [
             {
               "listen": "test",
