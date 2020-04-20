@@ -2489,7 +2489,7 @@
           "response": []
         },
         {
-          "name": "Verify Search with no parameters",
+          "name": "Valid Search by TIN and NPI Copy",
           "event": [
             {
               "listen": "test",
@@ -2502,7 +2502,7 @@
               }
             }
           ],
-          "_postman_id": "921a7225-7fc0-4d52-b7e0-2249678d6136",
+          "_postman_id": "20f6aa61-d87e-47d0-b883-cae343986d74",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
@@ -2561,7 +2561,7 @@
           "response": []
         },
         {
-          "name": "Valid Search by TIN and NPI Copy",
+          "name": "Verify Search with no parameters",
           "event": [
             {
               "listen": "test",
@@ -2574,7 +2574,7 @@
               }
             }
           ],
-          "_postman_id": "20f6aa61-d87e-47d0-b883-cae343986d74",
+          "_postman_id": "921a7225-7fc0-4d52-b7e0-2249678d6136",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
