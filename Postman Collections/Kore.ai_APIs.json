@@ -2136,10 +2136,7 @@
               "script": {
                 "id": "8eec8725-a6f5-41f5-ab94-1be74867cffd",
                 "exec": [
-                  "pm.test(\"Multiple results\", function () {",
-                  "    var jsonData = pm.response.json();",
-                  "    pm.expect(jsonData.Records.length).to.eq(1);",
-                  "});"
+                  ""
                 ],
                 "type": "text/javascript"
               }
