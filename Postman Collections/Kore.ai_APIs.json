@@ -2510,10 +2510,10 @@
             "auth": {
               "type": "oauth1",
               "oauth1": {
-                "tokenSecret": "{{TokenSecret}}",
-                "token": "{{AccessToken}}",
-                "consumerSecret": "{{CustomerSecret}}",
-                "consumerKey": "{{CustomerKey}}",
+                "tokenSecret": "",
+                "token": "",
+                "consumerSecret": "",
+                "consumerKey": "",
                 "addParamsToHeader": true,
                 "signatureMethod": "HMAC-SHA1",
                 "version": "1.0",
