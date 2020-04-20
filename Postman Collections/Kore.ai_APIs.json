@@ -2489,7 +2489,7 @@
           "response": []
         },
         {
-          "name": "Valid Search by TIN and NPI Copy",
+          "name": "Valid Search with no parameters",
           "event": [
             {
               "listen": "test",
