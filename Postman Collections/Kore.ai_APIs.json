@@ -2315,7 +2315,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"count\": 10,\n\t\"searchmodifiers\": \"tin:253669627\"\n}",
+              "raw": "{\n\t\"count\": 10,\n\t\"searchmodifiers\": \"tin:253669627|npi:6950760571\"\n}",
               "options": {
                 "raw": {}
               }
