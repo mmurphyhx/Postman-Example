@@ -2168,19 +2168,19 @@
               {
                 "key": "Content-Type",
                 "name": "Content-Type",
-                "value": "application/json",
-                "type": "text"
+                "type": "text",
+                "value": "application/json"
               }
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"tin\": \"1111111111\",\n\t\"memberid\": \"66666666600\",\n\t\"dob\": \"01/05/1962\",\n\t\"searchmodifiers\": \"\"\n}",
+              "raw": "{\n\t\"count\": 1,\n\t\"searchmodifiers\": \"npi:6950760571\"\n}",
               "options": {
                 "raw": {}
               }
             },
             "url": {
-              "raw": "https://{{env}}.healthx.com/API/EligibilityV1/JSON/Bot/Provider/Search/ID?instanceid={{instanceID}}",
+              "raw": "https://{{env}}.healthx.com/API/SignupV1/JSON/ProvRegistrationSearch?instanceid={{instanceID}}",
               "protocol": "https",
               "host": [
                 "{{env}}",
@@ -2189,12 +2189,9 @@
               ],
               "path": [
                 "API",
-                "EligibilityV1",
+                "SignupV1",
                 "JSON",
-                "Bot",
-                "Provider",
-                "Search",
-                "ID"
+                "ProvRegistrationSearch"
               ],
               "query": [
                 {
