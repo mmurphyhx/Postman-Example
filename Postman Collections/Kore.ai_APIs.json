@@ -60,7 +60,7 @@
                   }
                 },
                 "url": {
-                  "raw": "https://{{env}}.healthx.com/API/EligibilityV1/JSON/Bot/Provider/MemberList/?instanceid={{instanceID}}",
+                  "raw": "https://{{env}}.healthx.com/API/EligibilityV1/JSON/Bot/Provider/MemberList?instanceid={{instanceID}}",
                   "protocol": "https",
                   "host": [
                     "{{env}}",
@@ -73,8 +73,7 @@
                     "JSON",
                     "Bot",
                     "Provider",
-                    "MemberList",
-                    ""
+                    "MemberList"
                   ],
                   "query": [
                     {
