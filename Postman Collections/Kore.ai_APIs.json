@@ -10,7 +10,83 @@
       "item": [
         {
           "name": "MemberList",
-          "item": [],
+          "item": [
+            {
+              "name": "Multiple Records Valid Request",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "86710140-0866-48be-9609-7723f6d88ec3",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "8783f507-2e54-4f3b-8e48-6dbfd02b07c1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth1",
+                  "oauth1": {
+                    "tokenSecret": "{{TokenSecret}}",
+                    "token": "{{AccessToken}}",
+                    "consumerSecret": "{{CustomerSecret}}",
+                    "consumerKey": "{{CustomerKey}}",
+                    "addParamsToHeader": true,
+                    "signatureMethod": "HMAC-SHA1",
+                    "version": "1.0",
+                    "addEmptyParamsToSign": false
+                  }
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\n\t \"memberid\": \"112211\",\n    \"memberidtype\": 2\n\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": {
+                  "raw": "https://{{env}}.healthx.com/API/EligibilityV1/JSON/Bot/Provider/MemberList/?instanceid={{instanceID}}",
+                  "protocol": "https",
+                  "host": [
+                    "{{env}}",
+                    "healthx",
+                    "com"
+                  ],
+                  "path": [
+                    "API",
+                    "EligibilityV1",
+                    "JSON",
+                    "Bot",
+                    "Provider",
+                    "MemberList",
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "key": "instanceid",
+                      "value": "{{instanceID}}"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
           "_postman_id": "7c39e7e5-5f61-4277-94d6-209cbbdf37c8",
           "_postman_isSubFolder": true
         },
