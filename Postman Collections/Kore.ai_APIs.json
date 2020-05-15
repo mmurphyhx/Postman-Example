@@ -9,6 +9,12 @@
       "name": "Eligibility",
       "item": [
         {
+          "name": "MemberList",
+          "item": [],
+          "_postman_id": "7c39e7e5-5f61-4277-94d6-209cbbdf37c8",
+          "_postman_isSubFolder": true
+        },
+        {
           "name": "Single Record Valid Request",
           "event": [
             {
